@@ -28,32 +28,32 @@ namespace API.Controllers
             // _context = context;
         }
 
-    [HttpGet]
-    public async Task<ActionResult<List<Product>>> GetProducts()
-    {
-        // var products = await _context.Products.ToListAsync();
-        var products = await _productsRepo.ListAllAsync();
+        [HttpGet]
+        public async Task<ActionResult<List<Product>>> GetProducts()
+        {
+            // var products = await _context.Products.ToListAsync();
+            var products = await _productsRepo.ListAllAsync();
 
-        return Ok(products);
-    }
+            return Ok(products);
+        }
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Product>> GetProduct(int id)
-    {
-        // return await _context.Products.FindAsync(id);
-        return await _productsRepo.GetByIdAsync(id);
-    }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Product>> GetProduct(int id)
+        {
+            // return await _context.Products.FindAsync(id);
+            return await _productsRepo.GetByIdAsync(id);
+        }
 
-    [HttpGet("brands")]
-    public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
-    {
-        return Ok(await _productBrandRepo.ListAllAsync());
-    }
+        [HttpGet("brands")]
+        public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
+        {
+            return Ok(await _productBrandRepo.ListAllAsync());
+        }
 
-    [HttpGet("types")]
-    public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
-    {
-        return Ok(await _productTypeRepo.ListAllAsync());
+        [HttpGet("types")]
+        public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
+        {
+            return Ok(await _productTypeRepo.ListAllAsync());
+        }
     }
-}
 }
